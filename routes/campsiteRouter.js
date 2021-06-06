@@ -13,7 +13,7 @@ campsiteRouter
       .populate("comments.author")
       .then((campsites) => {
         res.statusCode = 200
-        res.setHeader("Content-Type", "application/json")
+        res.setHeader({ user: req.user._id })
         res.json(campsites)
       })
       .catch((err) => next(err))
